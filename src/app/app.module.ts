@@ -9,6 +9,7 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule} from "@angular/materi
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { MovieImagePipe } from './movie-image.pipe';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -17,7 +18,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    MovieImagePipe
   ],
   imports: [
     MatCardModule,

@@ -1,8 +1,7 @@
-.example-card {
+.movie-card {
   max-width: 400px;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+  float: left;
+  margin: 10px  10px  10px 10px;
+  height: 1000px;
+  cursor: pointer;
 }

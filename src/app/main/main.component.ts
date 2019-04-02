@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {MoviesService} from "../movies.service";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private moviesService: MoviesService) {
+    this.load();
   }
 
+  public get movies(): any[] {
+    return this.moviesService.movies;
+  }
+
+  public load(): void {
+    this.moviesService.load().subscribe();
+  }
 }
