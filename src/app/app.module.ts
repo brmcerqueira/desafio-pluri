@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatCardModule, MatCheckboxModule} from "@angular/material";
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatListModule} from "@angular/material";
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { MovieImagePipe } from './movie-image.pipe';
+import { DetailsComponent } from './details/details.component';
+import {registerLocaleData} from "@angular/common";
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -19,7 +24,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     MainComponent,
-    MovieImagePipe
+    MovieImagePipe,
+    DetailsComponent
   ],
   imports: [
     MatCardModule,
@@ -35,9 +41,12 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

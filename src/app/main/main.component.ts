@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MoviesService} from "../movies.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main',
@@ -8,8 +9,8 @@ import {MoviesService} from "../movies.service";
 })
 export class MainComponent {
 
-  constructor(private moviesService: MoviesService) {
-    this.load();
+  constructor(private router: Router, private moviesService: MoviesService) {
+
   }
 
   public get movies(): any[] {
@@ -18,5 +19,9 @@ export class MainComponent {
 
   public load(): void {
     this.moviesService.load().subscribe();
+  }
+
+  public details(id: number): void {
+    this.router.navigate([`details/${id}`]);
   }
 }

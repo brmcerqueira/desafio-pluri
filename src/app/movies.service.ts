@@ -21,15 +21,22 @@ export class MoviesService {
   constructor(private http: HttpClient, private translateService: TranslateService) {
     this._movies = [];
     this._index = 1;
+    this.load().subscribe();
   }
 
   public load(): Observable<void> {
     return this.http.get<LoadOutputDto>(MoviesService.uri("movie/now_playing"), {
       params: this.params.append("page", this._index.toString())
     }).pipe(map(d => {
-        this._index = d.page;
+        this._index = d.page + 1;
         d.results.forEach(i => this._movies.push(i));
     }));
+  }
+
+  public details(id: number): Observable<any> {
+    return this.http.get<any>(MoviesService.uri(`movie/${id}`), {
+      params: this.params
+    });
   }
 
   public get movies(): any[] {

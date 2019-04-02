@@ -1,3 +1,22 @@
 {
-  "movies": "Filmes"
+  "movies": "Filmes",
+  "load-more": "Carregar mais...",
+  "loading": "Carregando...",
+  "title": "Título",
+  "poster": "Capa",
+  "original-title": "Título Original",
+  "original-language": "Linguagem Original",
+  "overview": "Descrição",
+  "imdb-id": "IMDB Id",
+  "popularity": "Popularidade",
+  "vote-average": "Média de Votos",
+  "vote-count": "Contagem de Dotos",
+  "budget": "Orçamento",
+  "revenue": "Receita",
+  "release-date": "Data de Lançamento",
+  "homepage": "Pagina Inicial",
+  "genres": "Gênero(s)",
+  "companies": "Empresa(s)",
+  "countries": "Pais(es)",
+  "languages": "Língua(s)"
 }

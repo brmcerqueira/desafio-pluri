@@ -1,5 +1,5 @@
 <p>{{ 'movies' | translate }}</p>
-<mat-card class="movie-card" *ngFor="let movie of movies">
+<mat-card class="movie-card" *ngFor="let movie of movies" (click)="details(movie.id)">
   <mat-card-header>
     <mat-card-title>{{ movie.title }}</mat-card-title>
     <mat-card-subtitle>{{ movie.original_title }}</mat-card-subtitle>
@@ -9,3 +9,4 @@
     <p>{{ movie.overview }}</p>
   </mat-card-content>
 </mat-card>
+<button mat-raised-button color="primary" class="load-more" (click)="load()">{{ 'load-more' | translate }}</button>
